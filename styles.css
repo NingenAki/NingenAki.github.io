@@ -1,12 +1,327 @@
-#navbar{
+:root {
+  --welcome-section-width: 400px;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* background-color: #00000010; /**/
+  /* border: 1px solid red;  /**/
+}
+
+/* NAVBAR */
+
+#navbar {
   position: fixed;
   top: 0;
+  display: flex;
+  width: 100vw;
+  margin: 0;
+  height: 60px;
+  background: linear-gradient( gray, darkGray 75%, black);
+  box-shadow: 0 0 20px -10px white;
 }
 
-#welcome-section{
+#navbar header, #navbar a {
+  padding: 20px 10px 10px 10px;
+}
+
+#navbar header {
+  width: 40%;
+  min-width: 144px;
+  font: bold 1.5rem cursive;
+  color: var(--logo-color);
+  text-shadow: black 0px 0px 4px;
+  padding: 12px 10px 6px 20px;
+}
+
+#navbar header svg {
+  height: 100%;
+}
+
+#navbar ul {
+  width: 70%;
+  display: flex;
+  overflow: hidden;
+  list-style: none;
+  padding-left: 7px;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #5e5252;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#navbar a:hover {
+  background-color: #FFFFFF10;
+  box-shadow: 0 0 7px 0 black;
+  padding-top: 17px;
+}
+
+#navbar a:active {
+  background-color: #FFFFFF20;
+  box-shadow: inset 0 0 3px 0 black;
+  padding-top: 23px;
+}
+
+/* WELCOME SECTION */
+
+#welcome-section {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: black;
 }
 
-@media (max-width: 800px){
+#welcome-section>div {
+  width: var(--welcome-section-width);
+  font-family: mono;
+}
 
+
+#welcome-section .top p:before {
+  content: "Welcome to";
+  animation: text-top 10s steps(1, end);
+}
+
+#welcome-section .animation{
+  background-color: white;
+  height: 1rem;
+  width: 0.6rem;
+  border-radius: 5px;
+  position: relative;
+  top: -1.1rem;
+  margin-bottom: -1.1rem;
+  opacity: 0;
+}
+
+#welcome-section .top .animation {
+  animation: type-top 10s steps(1, end);
+}
+
+@keyframes type-top {
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% { 
+    opacity: 1;
+    left: 0;
+  }
+  27.5% {
+    left: 0.6rem;
+  }
+  30% {
+    left: calc(2 * 0.6rem);
+  }
+  32.5% {
+    left: calc(3 * 0.6rem);
+  }
+  35% {
+    left: calc(4 * 0.6rem);
+  }
+  37.5% {
+    left: calc(5 * 0.6rem);
+  }
+  40% {
+    left: calc(6 * 0.6rem);
+  }
+  42.5% {
+    left: calc(7 * 0.6rem);
+  }
+  45% {
+    left: calc(8 * 0.6rem);
+  }
+  47.5% {
+    left: calc(9 * 0.6rem);
+  }
+  50% {
+    left: calc(10 * 0.6rem);
+    opacity: 1;
+  }
+  52.5% {
+    left: calc(10 * 0.6rem);
+    opacity: 0;
+  }
+}
+
+@keyframes text-top {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1; 
+    content: "W";
+  }
+  27.5% {
+    content: "We";
+  }
+  30% {
+    content: "Wel";
+  }
+  32.5% {
+    content: "Welc";
+  }
+  35% {
+    content: "Welco";
+  }
+  37.5% {
+    content: "Welcom";
+  }
+  40% {
+    content: "Welcome";
+  }
+  42.5% {
+    content: "Welcome ";
+  }
+  45% {
+    content: "Welcome t";
+  }
+  47.5% {
+    content: "Welcome to";
+  }
+}
+
+#welcome-section h1 {
+  text-align: center;
+  margin: 10px;
+  animation: fade-in 11s;
+}
+
+@keyframes fade-in {
+  0%  {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0%
+  }
+  100% { 
+    opacity: 1;
+  }
+}
+
+#welcome-section .bottom p:before {
+  content: "webpage";
+  animation: text-bottom 20s steps(1, end);
+  position: relative;
+  top: -2rem;
+  left: calc(var(--welcome-section-width) - calc(7 * 0.6rem));
+}
+
+#welcome-section .bottom .animation {
+  top: -3rem;
+  left: calc(var(--welcome-section-width) - 0.6rem);
+  animation: type-bottom 20s steps(1, end);
+}
+
+@keyframes type-bottom {
+  50% {
+    opacity: 0;
+    left: calc(var(--welcome-section-width) - calc(7 * 0.6rem));
+  }
+  51.25% {
+    opacity: 1;
+    left: calc(var(--welcome-section-width) - calc(7 * 0.6rem));
+  }
+  52.5% {
+    left: calc(var(--welcome-section-width) - calc(6 * 0.6rem));
+  }
+  53.75% {
+    left: calc(var(--welcome-section-width) - calc(5 * 0.6rem));
+  }
+  55% {
+    left: calc(var(--welcome-section-width) - calc(4 * 0.6rem));
+  }
+  56.25% {
+    left: calc(var(--welcome-section-width) - calc(3 * 0.6rem));
+  }
+  57.5% {
+    left: calc(var(--welcome-section-width) - calc(2 * 0.6rem));
+  }
+  58.75% {
+    left: calc(var(--welcome-section-width) - 0.6rem);
+  }
+  60% {
+    left: var(--welcome-section-width);
+    opacity: 1;
+  }
+  62.5% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  67.5% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  72.5% {
+    opacity: 0;
+  }
+}
+
+@keyframes text-bottom {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51.25% {
+    opacity: 1;
+    content: "w";
+  }
+  52.5% {
+    content: "we";
+  }
+  53.75% {
+    content: "web";
+  }
+  55% {
+    content: "webp";
+  }
+  56.25% {
+    content: "webpa";
+  }
+  57.5% {
+    content: "webpag";
+  }
+  58.75% {
+    content: "webpage";
+  }
+}
+
+@media (max-width: 800px) {
+
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
